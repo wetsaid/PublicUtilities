@@ -1,32 +1,56 @@
 package cn.edu.zucc.shijf.model;
 
-import java.util.Date;
-
 public class TUser {
-    private Long id;
+    private Integer userId;
+
+    private String userCode;
+
+    private Integer userType;
 
     private String userName;
 
-    private String userPhone;
+    private Integer userPwd;
 
-    private String userEmail;
+    private Integer cardType;
 
-    private String userPwd;
+    private String cardCode;
 
-    private String pwdSalt;
+    private String mobileCode;
 
-    private Date createTime;
+    private String email;
 
-    private Date modifyTime;
+    private String address;
 
-    private Byte isDelete;
+    private Integer userStatus;
 
-    public Long getId() {
-        return id;
+    private Long createDate;
+
+    private Long logoffDate;
+
+    private String remark;
+
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode == null ? null : userCode.trim();
+    }
+
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
     public String getUserName() {
@@ -37,59 +61,83 @@ public class TUser {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone == null ? null : userPhone.trim();
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail == null ? null : userEmail.trim();
-    }
-
-    public String getUserPwd() {
+    public Integer getUserPwd() {
         return userPwd;
     }
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd == null ? null : userPwd.trim();
+    public void setUserPwd(Integer userPwd) {
+        this.userPwd = userPwd;
     }
 
-    public String getPwdSalt() {
-        return pwdSalt;
+    public Integer getCardType() {
+        return cardType;
     }
 
-    public void setPwdSalt(String pwdSalt) {
-        this.pwdSalt = pwdSalt == null ? null : pwdSalt.trim();
+    public void setCardType(Integer cardType) {
+        this.cardType = cardType;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public String getCardCode() {
+        return cardCode;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCardCode(String cardCode) {
+        this.cardCode = cardCode == null ? null : cardCode.trim();
     }
 
-    public Date getModifyTime() {
-        return modifyTime;
+    public String getMobileCode() {
+        return mobileCode;
     }
 
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
+    public void setMobileCode(String mobileCode) {
+        this.mobileCode = mobileCode == null ? null : mobileCode.trim();
     }
 
-    public Byte getIsDelete() {
-        return isDelete;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIsDelete(Byte isDelete) {
-        this.isDelete = isDelete;
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public Integer getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(Integer userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public Long getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Long createDate) {
+        this.createDate = createDate;
+    }
+
+    public Long getLogoffDate() {
+        return logoffDate;
+    }
+
+    public void setLogoffDate(Long logoffDate) {
+        this.logoffDate = logoffDate;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }

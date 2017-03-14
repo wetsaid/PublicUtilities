@@ -10,7 +10,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.66.4.100:3306/db_ssm"
+                        connectionURL="jdbc:mysql://10.66.4.100:3306/public_utilities"
                         userId="root"
                         password="oracle"/>
         <javaTypeResolver>
