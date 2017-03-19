@@ -13,4 +13,6 @@ public interface UserService {
     List<TUser> getAllUsers();
 
     TUser getUser(TUser user) throws BizException;
+
+    void registerUser(TUser user) throws BizException;
 }

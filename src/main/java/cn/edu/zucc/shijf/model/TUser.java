@@ -9,7 +9,7 @@ public class TUser {
 
     private String userName;
 
-    private Integer userPwd;
+    private String userPwd;
 
     private Integer cardType;
 
@@ -61,12 +61,12 @@ public class TUser {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public Integer getUserPwd() {
+    public String getUserPwd() {
         return userPwd;
     }
 
-    public void setUserPwd(Integer userPwd) {
-        this.userPwd = userPwd;
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd == null ? null : userPwd.trim();
     }
 
     public Integer getCardType() {

@@ -16,7 +16,6 @@ import java.util.List;
  */
 
 @Service
-@Transactional(rollbackFor = BizException.class)
 public class UserServiceImpl implements UserService {
 
     @Resource
@@ -26,6 +25,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByExample(null);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public TUser getUser(TUser user) throws BizException {
         TUserExample example = new TUserExample();
         TUserExample.Criteria criteria = example.createCriteria();
@@ -36,6 +36,25 @@ public class UserServiceImpl implements UserService {
         if (users.isEmpty()) {
             throw new BizException("用户不存在");
         }
+        if (users.size() > 1) {
+            throw new BizException("数据异常");
+        }
         return users.get(0);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void registerUser(TUser user) throws BizException {
+        TUserExample example = new TUserExample();
+        TUserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserNameEqualTo(user.getUserName());
+
+        List<TUser> users = userMapper.selectByExample(example);
+        if (!users.isEmpty()) {
+            throw new BizException("用户名已存在");
+        }
+
+        userMapper.insert(user);
+
+        // TODO 捕捉数据库错误（重复索引）
     }
 }

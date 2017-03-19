@@ -2,9 +2,8 @@ package cn.edu.zucc.shijf.dao;
 
 import cn.edu.zucc.shijf.model.TUser;
 import cn.edu.zucc.shijf.model.TUserExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TUserMapper {
     int countByExample(TUserExample example);

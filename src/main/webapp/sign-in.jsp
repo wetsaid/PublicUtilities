@@ -18,14 +18,12 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/signin.css">
 
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="assets/ico/minus.png">
-
 
     <script type="text/javascript">
         function login() {
@@ -34,14 +32,14 @@
                 dataType: 'json',
                 url: '/user/login',
 
-                data: $('#form-login').serialize(),
+                data: $('#form-login').serializeArray(),
 //                data: {
 //                    userName: $('#id-name').val(),
 //                    userPwd: $('#id-pwd').val()
 //                },
                 success: function (data) {
                     if (data.success) {
-                        alert('成功');
+                        window.location = 'index.jsp';
                     }
                     else {
                         if (data.reason == '用户不存在') {
@@ -63,9 +61,9 @@
 
 <body>
 <!-- Preloader -->
-<div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>
+<%--<div id="preloader">--%>
+    <%--<div id="status">&nbsp;</div>--%>
+<%--</div>--%>
 
 <div class="container">
 
@@ -78,7 +76,6 @@
                     </h1>
                 </div>
             </div>
-
         </div>
 
         <div class="row">
@@ -105,43 +102,16 @@
                     <button onclick="login()" class="btn btn btn-primary pull-right">
                         登 录
                     </button>
-                    <a class="forgotLnk" href="index.html"></a>
-                    <!--div class="or-box">
-
-                        <center><span class="text-center login-with">Login or <b>Sign Up</b></span></center>
-                        <div class="row">
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-facebook btn-block">
-                                    <span class="entypo-facebook space-icon"></span>Facebook</a>
-                            </div>
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-twitter btn-block">
-                                    <span class="entypo-twitter space-icon"></span>Twitter</a>
-
-                            </div>
-
-                        </div>
-                        <div style="margin-top:25px" class="row">
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
-                            </div>
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
-                            </div>
-
-                        </div>
+                    <%--<a class="forgotLnk" href="index.html"></a>--%>
+                    <div class="or-box">
+                        <center>
+                            <span class="text-center login-with">
+                                Sign in or <b><a href="sign-up.jsp">Sign Up</a></b>
+                            </span>
+                        </center>
                     </div>
-                    <hr>
                     <div class="row-block">
-                        <div class="row">
-                            <div class="col-md-12 row-block">
-                                <a href="index.html" class="btn btn-primary btn-block">Create New Account</a>
-                            </div>
-                        </div>
-                    </div-->
-                    <div class="row-block">
-                        <div class="row">
-                        </div>
+                        <div class="row"></div>
                     </div>
                 </div>
             </div>
@@ -157,9 +127,7 @@
 </div>
 <div id="test1" class="gmap3"></div>
 
-
 <!--  END OF PAPER WRAP -->
-
 
 <!-- MAIN EFFECT -->
 <script type="text/javascript" src="assets/js/preloader.js"></script>
@@ -177,7 +145,7 @@
 
         $("#test1").gmap3({
             marker: {
-                latLng: [30.321351, 120.153777],
+                latLng: [30.321351, 120.153778],
                 options: {
                     draggable: true
                 },
@@ -221,8 +189,6 @@
     });
 </script>
 
-
 </body>
-
 
 </html>

@@ -6,7 +6,7 @@
     <result column="user_code" property="userCode" jdbcType="VARCHAR" />
     <result column="user_type" property="userType" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="user_pwd" property="userPwd" jdbcType="INTEGER" />
+    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
     <result column="card_type" property="cardType" jdbcType="INTEGER" />
     <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
     <result column="mobile_code" property="mobileCode" jdbcType="VARCHAR" />
@@ -116,7 +116,7 @@
       address, user_status, create_date, 
       logoff_date, remark)
     values (#{userId,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
-      #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=INTEGER}, #{cardType,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{cardType,jdbcType=INTEGER}, 
       #{cardCode,jdbcType=VARCHAR}, #{mobileCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, #{createDate,jdbcType=BIGINT}, 
       #{logoffDate,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR})
@@ -181,7 +181,7 @@
         #{userName,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null" >
-        #{userPwd,jdbcType=INTEGER},
+        #{userPwd,jdbcType=VARCHAR},
       </if>
       <if test="cardType != null" >
         #{cardType,jdbcType=INTEGER},
@@ -234,7 +234,7 @@
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
       <if test="record.userPwd != null" >
-        user_pwd = #{record.userPwd,jdbcType=INTEGER},
+        user_pwd = #{record.userPwd,jdbcType=VARCHAR},
       </if>
       <if test="record.cardType != null" >
         card_type = #{record.cardType,jdbcType=INTEGER},
@@ -274,7 +274,7 @@
       user_code = #{record.userCode,jdbcType=VARCHAR},
       user_type = #{record.userType,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      user_pwd = #{record.userPwd,jdbcType=INTEGER},
+      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
       card_type = #{record.cardType,jdbcType=INTEGER},
       card_code = #{record.cardCode,jdbcType=VARCHAR},
       mobile_code = #{record.mobileCode,jdbcType=VARCHAR},
@@ -301,7 +301,7 @@
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="userPwd != null" >
-        user_pwd = #{userPwd,jdbcType=INTEGER},
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
       </if>
       <if test="cardType != null" >
         card_type = #{cardType,jdbcType=INTEGER},
@@ -338,7 +338,7 @@
     set user_code = #{userCode,jdbcType=VARCHAR},
       user_type = #{userType,jdbcType=INTEGER},
       user_name = #{userName,jdbcType=VARCHAR},
-      user_pwd = #{userPwd,jdbcType=INTEGER},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
       card_type = #{cardType,jdbcType=INTEGER},
       card_code = #{cardCode,jdbcType=VARCHAR},
       mobile_code = #{mobileCode,jdbcType=VARCHAR},
