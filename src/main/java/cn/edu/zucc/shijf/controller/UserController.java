@@ -5,15 +5,15 @@ import cn.edu.zucc.shijf.model.TUser;
 import cn.edu.zucc.shijf.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,35 +29,31 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @RequestMapping("/show")
-    public String showUsers(Model model) {
-        log.info("查询所有用户");
-        List<TUser> users = userService.getAllUsers();
-        model.addAttribute("userList", users);
-        return "showUser";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> login(HttpServletRequest request, TUser reqUser) {
+    public Map<String, Object> login(HttpSession session, TUser reqUser) {
         Map<String, Object> data = new HashMap<String, Object>();
 
-        TUser user;
         try {
-            user = userService.getUser(reqUser);
+            TUser user = userService.getUser(reqUser);
+            if (!reqUser.getUserPwd().equals(user.getUserPwd())) {
+                log.error("密码错误");
+                data.put("success", false);
+                data.put("reason", "密码错误");
+            } else {
+                String lastSignIn = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(user.getLoginDate()));
+                session.setAttribute("lastSignIn", lastSignIn);
+                user.setLoginDate(System.currentTimeMillis());
+                userService.updateUser(user);
+
+                session.setAttribute("currentUser", user);
+                data.put("success", true);
+            }
         } catch (BizException e) {
             log.error(e.getMessage());
             data.put("success", false);
             data.put("reason", e.getMessage());
             return data;
-        }
-        if (!reqUser.getUserPwd().equals(user.getUserPwd())) {
-            log.error("密码错误");
-            data.put("success", false);
-            data.put("reason", "密码错误");
-        } else {
-            request.getSession().setAttribute("currentUser", user);
-            data.put("success", true);
         }
 
         return data;
@@ -65,7 +61,7 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> register(HttpServletRequest request, String userName, String userPwd, String cfmPwd) {
+    public Map<String, Object> register(HttpSession session, String userCode, String userPwd, String cfmPwd) {
         Map<String, Object> data = new HashMap<String, Object>();
 
         if (!userPwd.equals(cfmPwd)) {
@@ -75,19 +71,42 @@ public class UserController {
         }
 
         TUser user = new TUser();
-        user.setUserName(userName);
+        user.setUserCode(userCode);
+        user.setUserName("用户" + userCode);
         user.setUserPwd(userPwd);
+        user.setLoginDate(System.currentTimeMillis());
+        user.setCreateDate(System.currentTimeMillis());
         try {
             userService.registerUser(user);
         } catch (BizException e) {
+            e.printStackTrace();
             log.error(e.getMessage());
+
             data.put("success", false);
             data.put("reason", e.getMessage());
             return data;
         }
 
-        request.getSession().setAttribute("currentUser", user);
+        String lastSignIn = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date(user.getLoginDate()));
+        session.setAttribute("lastSignIn", lastSignIn);
+        session.setAttribute("currentUser", user);
         data.put("success", true);
         return data;
     }
+
+    @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> updateProfile(HttpSession session, TUser newUser) {
+        Map<String, Object> data = new HashMap<String, Object>();
+
+        TUser currentUser = (TUser) session.getAttribute("currentUser");
+
+
+        userService.updateProfile(currentUser, newUser);
+
+
+        // 查看 currentUser
+        return data;
+    }
+
 }

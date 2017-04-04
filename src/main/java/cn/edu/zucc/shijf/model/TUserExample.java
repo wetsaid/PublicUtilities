@@ -894,63 +894,63 @@ public class TUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateIsNull() {
-            addCriterion("logoff_date is null");
+        public Criteria andLoginDateIsNull() {
+            addCriterion("login_date is null");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateIsNotNull() {
-            addCriterion("logoff_date is not null");
+        public Criteria andLoginDateIsNotNull() {
+            addCriterion("login_date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateEqualTo(Long value) {
-            addCriterion("logoff_date =", value, "logoffDate");
+        public Criteria andLoginDateEqualTo(Long value) {
+            addCriterion("login_date =", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateNotEqualTo(Long value) {
-            addCriterion("logoff_date <>", value, "logoffDate");
+        public Criteria andLoginDateNotEqualTo(Long value) {
+            addCriterion("login_date <>", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateGreaterThan(Long value) {
-            addCriterion("logoff_date >", value, "logoffDate");
+        public Criteria andLoginDateGreaterThan(Long value) {
+            addCriterion("login_date >", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateGreaterThanOrEqualTo(Long value) {
-            addCriterion("logoff_date >=", value, "logoffDate");
+        public Criteria andLoginDateGreaterThanOrEqualTo(Long value) {
+            addCriterion("login_date >=", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateLessThan(Long value) {
-            addCriterion("logoff_date <", value, "logoffDate");
+        public Criteria andLoginDateLessThan(Long value) {
+            addCriterion("login_date <", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateLessThanOrEqualTo(Long value) {
-            addCriterion("logoff_date <=", value, "logoffDate");
+        public Criteria andLoginDateLessThanOrEqualTo(Long value) {
+            addCriterion("login_date <=", value, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateIn(List<Long> values) {
-            addCriterion("logoff_date in", values, "logoffDate");
+        public Criteria andLoginDateIn(List<Long> values) {
+            addCriterion("login_date in", values, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateNotIn(List<Long> values) {
-            addCriterion("logoff_date not in", values, "logoffDate");
+        public Criteria andLoginDateNotIn(List<Long> values) {
+            addCriterion("login_date not in", values, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateBetween(Long value1, Long value2) {
-            addCriterion("logoff_date between", value1, value2, "logoffDate");
+        public Criteria andLoginDateBetween(Long value1, Long value2) {
+            addCriterion("login_date between", value1, value2, "loginDate");
             return (Criteria) this;
         }
 
-        public Criteria andLogoffDateNotBetween(Long value1, Long value2) {
-            addCriterion("logoff_date not between", value1, value2, "logoffDate");
+        public Criteria andLoginDateNotBetween(Long value1, Long value2) {
+            addCriterion("login_date not between", value1, value2, "loginDate");
             return (Criteria) this;
         }
 

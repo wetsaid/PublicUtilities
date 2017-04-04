@@ -25,7 +25,7 @@ public class TUser {
 
     private Long createDate;
 
-    private Long logoffDate;
+    private Long loginDate;
 
     private String remark;
 
@@ -125,12 +125,12 @@ public class TUser {
         this.createDate = createDate;
     }
 
-    public Long getLogoffDate() {
-        return logoffDate;
+    public Long getLoginDate() {
+        return loginDate;
     }
 
-    public void setLogoffDate(Long logoffDate) {
-        this.logoffDate = logoffDate;
+    public void setLoginDate(Long loginDate) {
+        this.loginDate = loginDate;
     }
 
     public String getRemark() {

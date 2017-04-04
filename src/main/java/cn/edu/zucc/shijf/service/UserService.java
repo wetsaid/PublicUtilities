@@ -15,4 +15,8 @@ public interface UserService {
     TUser getUser(TUser user) throws BizException;
 
     void registerUser(TUser user) throws BizException;
+
+    void updateUser(TUser user);
+
+    void updateProfile(TUser currentUser, TUser newUser);
 }

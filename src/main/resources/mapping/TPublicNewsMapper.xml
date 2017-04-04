@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zucc.shijf.dao.TPublicNewsMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.zucc.shijf.model.TPublicNews" >
+    <id column="news_id" property="newsId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="report_time" property="reportTime" jdbcType="BIGINT" />
+    <result column="img_name" property="imgName" jdbcType="VARCHAR" />
+    <result column="news_description" property="newsDescription" jdbcType="VARCHAR" />
+    <result column="news_type" property="newsType" jdbcType="INTEGER" />
+    <result column="review_user_id" property="reviewUserId" jdbcType="INTEGER" />
+    <result column="review_time" property="reviewTime" jdbcType="BIGINT" />
+    <result column="fail_reason" property="failReason" jdbcType="VARCHAR" />
+    <result column="news_status" property="newsStatus" jdbcType="INTEGER" />
+    <result column="news_remark" property="newsRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    news_id, user_id, report_time, img_name, news_description, news_type, review_user_id, 
+    review_time, fail_reason, news_status, news_remark
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.zucc.shijf.model.TPublicNewsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_public_news
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_public_news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_public_news
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.zucc.shijf.model.TPublicNewsExample" >
+    delete from t_public_news
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.zucc.shijf.model.TPublicNews" >
+    insert into t_public_news (news_id, user_id, report_time, 
+      img_name, news_description, news_type, 
+      review_user_id, review_time, fail_reason, 
+      news_status, news_remark)
+    values (#{newsId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{reportTime,jdbcType=BIGINT}, 
+      #{imgName,jdbcType=VARCHAR}, #{newsDescription,jdbcType=VARCHAR}, #{newsType,jdbcType=INTEGER}, 
+      #{reviewUserId,jdbcType=INTEGER}, #{reviewTime,jdbcType=BIGINT}, #{failReason,jdbcType=VARCHAR}, 
+      #{newsStatus,jdbcType=INTEGER}, #{newsRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.zucc.shijf.model.TPublicNews" >
+    insert into t_public_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="newsId != null" >
+        news_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+      <if test="imgName != null" >
+        img_name,
+      </if>
+      <if test="newsDescription != null" >
+        news_description,
+      </if>
+      <if test="newsType != null" >
+        news_type,
+      </if>
+      <if test="reviewUserId != null" >
+        review_user_id,
+      </if>
+      <if test="reviewTime != null" >
+        review_time,
+      </if>
+      <if test="failReason != null" >
+        fail_reason,
+      </if>
+      <if test="newsStatus != null" >
+        news_status,
+      </if>
+      <if test="newsRemark != null" >
+        news_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="newsId != null" >
+        #{newsId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=BIGINT},
+      </if>
+      <if test="imgName != null" >
+        #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="newsDescription != null" >
+        #{newsDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null" >
+        #{newsType,jdbcType=INTEGER},
+      </if>
+      <if test="reviewUserId != null" >
+        #{reviewUserId,jdbcType=INTEGER},
+      </if>
+      <if test="reviewTime != null" >
+        #{reviewTime,jdbcType=BIGINT},
+      </if>
+      <if test="failReason != null" >
+        #{failReason,jdbcType=VARCHAR},
+      </if>
+      <if test="newsStatus != null" >
+        #{newsStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newsRemark != null" >
+        #{newsRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.zucc.shijf.model.TPublicNewsExample" resultType="java.lang.Integer" >
+    select count(*) from t_public_news
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_public_news
+    <set >
+      <if test="record.newsId != null" >
+        news_id = #{record.newsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.reportTime != null" >
+        report_time = #{record.reportTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.imgName != null" >
+        img_name = #{record.imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsDescription != null" >
+        news_description = #{record.newsDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsType != null" >
+        news_type = #{record.newsType,jdbcType=INTEGER},
+      </if>
+      <if test="record.reviewUserId != null" >
+        review_user_id = #{record.reviewUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.reviewTime != null" >
+        review_time = #{record.reviewTime,jdbcType=BIGINT},
+      </if>
+      <if test="record.failReason != null" >
+        fail_reason = #{record.failReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsStatus != null" >
+        news_status = #{record.newsStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.newsRemark != null" >
+        news_remark = #{record.newsRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_public_news
+    set news_id = #{record.newsId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      report_time = #{record.reportTime,jdbcType=BIGINT},
+      img_name = #{record.imgName,jdbcType=VARCHAR},
+      news_description = #{record.newsDescription,jdbcType=VARCHAR},
+      news_type = #{record.newsType,jdbcType=INTEGER},
+      review_user_id = #{record.reviewUserId,jdbcType=INTEGER},
+      review_time = #{record.reviewTime,jdbcType=BIGINT},
+      fail_reason = #{record.failReason,jdbcType=VARCHAR},
+      news_status = #{record.newsStatus,jdbcType=INTEGER},
+      news_remark = #{record.newsRemark,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.zucc.shijf.model.TPublicNews" >
+    update t_public_news
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTime != null" >
+        report_time = #{reportTime,jdbcType=BIGINT},
+      </if>
+      <if test="imgName != null" >
+        img_name = #{imgName,jdbcType=VARCHAR},
+      </if>
+      <if test="newsDescription != null" >
+        news_description = #{newsDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null" >
+        news_type = #{newsType,jdbcType=INTEGER},
+      </if>
+      <if test="reviewUserId != null" >
+        review_user_id = #{reviewUserId,jdbcType=INTEGER},
+      </if>
+      <if test="reviewTime != null" >
+        review_time = #{reviewTime,jdbcType=BIGINT},
+      </if>
+      <if test="failReason != null" >
+        fail_reason = #{failReason,jdbcType=VARCHAR},
+      </if>
+      <if test="newsStatus != null" >
+        news_status = #{newsStatus,jdbcType=INTEGER},
+      </if>
+      <if test="newsRemark != null" >
+        news_remark = #{newsRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.zucc.shijf.model.TPublicNews" >
+    update t_public_news
+    set user_id = #{userId,jdbcType=INTEGER},
+      report_time = #{reportTime,jdbcType=BIGINT},
+      img_name = #{imgName,jdbcType=VARCHAR},
+      news_description = #{newsDescription,jdbcType=VARCHAR},
+      news_type = #{newsType,jdbcType=INTEGER},
+      review_user_id = #{reviewUserId,jdbcType=INTEGER},
+      review_time = #{reviewTime,jdbcType=BIGINT},
+      fail_reason = #{failReason,jdbcType=VARCHAR},
+      news_status = #{newsStatus,jdbcType=INTEGER},
+      news_remark = #{newsRemark,jdbcType=VARCHAR}
+    where news_id = #{newsId,jdbcType=INTEGER}
+  </update>
+</mapper>

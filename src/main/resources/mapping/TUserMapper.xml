@@ -14,7 +14,7 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="user_status" property="userStatus" jdbcType="INTEGER" />
     <result column="create_date" property="createDate" jdbcType="BIGINT" />
-    <result column="logoff_date" property="logoffDate" jdbcType="BIGINT" />
+    <result column="login_date" property="loginDate" jdbcType="BIGINT" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -77,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List" >
     user_id, user_code, user_type, user_name, user_pwd, card_type, card_code, mobile_code, 
-    email, address, user_status, create_date, logoff_date, remark
+    email, address, user_status, create_date, login_date, remark
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.zucc.shijf.model.TUserExample" >
     select
@@ -114,12 +114,12 @@
       user_name, user_pwd, card_type, 
       card_code, mobile_code, email, 
       address, user_status, create_date, 
-      logoff_date, remark)
+      login_date, remark)
     values (#{userId,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
       #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{cardType,jdbcType=INTEGER}, 
       #{cardCode,jdbcType=VARCHAR}, #{mobileCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, #{createDate,jdbcType=BIGINT}, 
-      #{logoffDate,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR})
+      #{loginDate,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.zucc.shijf.model.TUser" >
     insert into t_user
@@ -160,8 +160,8 @@
       <if test="createDate != null" >
         create_date,
       </if>
-      <if test="logoffDate != null" >
-        logoff_date,
+      <if test="loginDate != null" >
+        login_date,
       </if>
       <if test="remark != null" >
         remark,
@@ -204,8 +204,8 @@
       <if test="createDate != null" >
         #{createDate,jdbcType=BIGINT},
       </if>
-      <if test="logoffDate != null" >
-        #{logoffDate,jdbcType=BIGINT},
+      <if test="loginDate != null" >
+        #{loginDate,jdbcType=BIGINT},
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
@@ -257,8 +257,8 @@
       <if test="record.createDate != null" >
         create_date = #{record.createDate,jdbcType=BIGINT},
       </if>
-      <if test="record.logoffDate != null" >
-        logoff_date = #{record.logoffDate,jdbcType=BIGINT},
+      <if test="record.loginDate != null" >
+        login_date = #{record.loginDate,jdbcType=BIGINT},
       </if>
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=VARCHAR},
@@ -282,7 +282,7 @@
       address = #{record.address,jdbcType=VARCHAR},
       user_status = #{record.userStatus,jdbcType=INTEGER},
       create_date = #{record.createDate,jdbcType=BIGINT},
-      logoff_date = #{record.logoffDate,jdbcType=BIGINT},
+      login_date = #{record.loginDate,jdbcType=BIGINT},
       remark = #{record.remark,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -324,8 +324,8 @@
       <if test="createDate != null" >
         create_date = #{createDate,jdbcType=BIGINT},
       </if>
-      <if test="logoffDate != null" >
-        logoff_date = #{logoffDate,jdbcType=BIGINT},
+      <if test="loginDate != null" >
+        login_date = #{loginDate,jdbcType=BIGINT},
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
@@ -346,7 +346,7 @@
       address = #{address,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=INTEGER},
       create_date = #{createDate,jdbcType=BIGINT},
-      logoff_date = #{logoffDate,jdbcType=BIGINT},
+      login_date = #{loginDate,jdbcType=BIGINT},
       remark = #{remark,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>

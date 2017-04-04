@@ -1061,8 +1061,8 @@ input::-webkit-input-placeholder {
 /* CLOCK*/
  @font-face {
     font-family:'BebasNeueRegular';
-    src: url('../font/bebasneue-webfont.eot');
-    src: url('../font/bebasneue-webfont.eot?#iefix') format('embedded-opentype'), url('../font/bebasneue-webfont.woff') format('woff'), url('../font/bebasneue-webfont.ttf') format('truetype'), url('../font/bebasneue-webfont.svg#bebas_neueregular') format('svg');
+    src: url('../font/BebasNeue-webfont.eot');
+    src: url('../font/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), url('../font/BebasNeue-webfont.woff') format('woff'), url('../font/BebasNeue-webfont.ttf') format('truetype'), url('../font/BebasNeue-webfont.svg#bebas_neueregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -2657,6 +2657,7 @@ b#speed {
  * PAPER FLOAD
  */
  .paper-wrap {
+    /*background-color: none repeat 0 0 #ffffff;*/
     background-color: none repeat scroll 0 0 #ffffff;
     background-position: -1px 0;
     background-repeat: no-repeat;
@@ -2666,8 +2667,9 @@ b#speed {
     background-position: bottom left, top left, top right, bottom right;
     background-size: 50% 50%;
     background-repeat: no-repeat;
-    padding: 20px;
-    min-height: 1430px;
+    padding: 20px 20px 0 20px;
+    min-height: 50%;
+    /*min-height: 1430px;*/
 }
 .bevel.tlbr {
     background: #f5f5f5;

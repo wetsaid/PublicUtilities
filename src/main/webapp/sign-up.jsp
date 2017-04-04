@@ -25,38 +25,6 @@
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="assets/ico/minus.png">
 
-    <script type="text/javascript">
-        function register() {
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: '/user/register',
-
-                data: {
-                    userName: $('#input-name').val(),
-                    userPwd: $('#input-pwd').val(),
-                    cfmPwd: $('#input-cfm-pwd').val()
-                },
-                success: function (data) {
-                    if (data.success) {
-                        window.location = 'index.jsp';
-                    }
-                    else {
-                        if (data.reason == '用户名已存在') {
-                            $('#input-name').val('');
-                        }
-                        $('#input-pwd').val('');
-                        $('#input-cfm-pwd').val('');
-                        $('#p-reason').html(data.reason);
-                        $('#p-reason').show('fast');
-                    }
-                },
-                beforeSend: function () {
-                    $('#p-reason').hide();
-                }
-            });
-        }
-    </script>
 
 </head>
 
@@ -80,8 +48,8 @@
                 <div class="account-box">
                     <form id="form-register" role="form">
                         <div class="form-group">
-                            <label for="input-name">用户名</label>
-                            <input id="input-name" type="text" name="userName" class="form-control">
+                            <label for="input-code">用户名</label>
+                            <input id="input-code" type="text" name="userCode" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="input-pwd">密码</label>
@@ -98,12 +66,12 @@
                     <button onclick="register()" class="btn btn btn-primary pull-right">
                         注 册
                     </button>
-                    <a class="forgotLnk" href="index.html"></a>
+                    <%--<a class="forgotLnk" href="index.jsp"></a>--%>
 
                     <div class="or-box">
                         <center>
                             <span class="text-center login-with">
-                                <b><a href="sign-in.jsp">Sign in</a></b> or Sign Up
+                                <b><a href="sign-in.jsp">登录</a></b> 或 注册
                             </span>
                         </center>
                     </div>
@@ -118,12 +86,11 @@
 
     <p>&nbsp;</p>
     <div style="text-align:center;margin:0 auto;">
-        <h6 style="color:#fff;">Copyright(C)2017 shijf All Rights Reserved<br/>
-            浙江大学城市学院 版权所有 浙IP备31301179号</h6>
+        <h6 style="color:#fff;">Copyright(C)2017 Shijf All Rights Reserved<br/>
+            浙江大学城市学院 计算学院 31301179</h6>
     </div>
 
 </div>
-<div id="test1" class="gmap3"></div>
 
 <!--  END OF PAPER WRAP -->
 
@@ -134,58 +101,38 @@
 <script type="text/javascript" src="assets/js/load.js"></script>
 <script type="text/javascript" src="assets/js/main.js"></script>
 
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-<script type="text/javascript" src="assets/js/map/gmap3.js"></script>
+<script type="text/javascript">
+    function register() {
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/user/register',
 
-<%--地图--%>
-<%--<script type="text/javascript">--%>
-<%--$(function () {--%>
-
-<%--$("#test1").gmap3({--%>
-<%--marker: {--%>
-<%--latLng: [30.321351, 120.153778],--%>
-<%--options: {--%>
-<%--draggable: true--%>
-<%--},--%>
-<%--events: {--%>
-<%--dragend: function (marker) {--%>
-<%--$(this).gmap3({--%>
-<%--getaddress: {--%>
-<%--latLng: marker.getPosition(),--%>
-<%--callback: function (results) {--%>
-<%--var map = $(this).gmap3("get"),--%>
-<%--infowindow = $(this).gmap3({--%>
-<%--get: "infowindow"--%>
-<%--}),--%>
-<%--content = results && results[1] ? results && results[1].formatted_address : "no address";--%>
-<%--if (infowindow) {--%>
-<%--infowindow.open(map, marker);--%>
-<%--infowindow.setContent(content);--%>
-<%--} else {--%>
-<%--$(this).gmap3({--%>
-<%--infowindow: {--%>
-<%--anchor: marker,--%>
-<%--options: {--%>
-<%--content: content--%>
-<%--}--%>
-<%--}--%>
-<%--});--%>
-<%--}--%>
-<%--}--%>
-<%--}--%>
-<%--});--%>
-<%--}--%>
-<%--}--%>
-<%--},--%>
-<%--map: {--%>
-<%--options: {--%>
-<%--zoom: 15--%>
-<%--}--%>
-<%--}--%>
-<%--});--%>
-
-<%--});--%>
-<%--</script>--%>
+            data: {
+                userCode: $('#input-code').val(),
+                userPwd: $('#input-pwd').val(),
+                cfmPwd: $('#input-cfm-pwd').val()
+            },
+            success: function (data) {
+                if (data.success) {
+                    window.location.href = 'index';
+                }
+                else {
+                    if (data.reason == '用户名已存在') {
+                        $('#input-code').val('');
+                    }
+                    $('#input-pwd').val('');
+                    $('#input-cfm-pwd').val('');
+                    $('#p-reason').html(data.reason);
+                    $('#p-reason').show('fast');
+                }
+            },
+            beforeSend: function () {
+                $('#p-reason').hide();
+            }
+        });
+    }
+</script>
 
 </body>
 

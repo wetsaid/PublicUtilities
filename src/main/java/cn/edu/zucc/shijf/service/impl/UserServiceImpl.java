@@ -25,11 +25,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByExample(null);
     }
 
-    @Transactional(rollbackFor = Exception.class)
     public TUser getUser(TUser user) throws BizException {
         TUserExample example = new TUserExample();
         TUserExample.Criteria criteria = example.createCriteria();
-        criteria.andUserNameEqualTo(user.getUserName());
+        criteria.andUserCodeEqualTo(user.getUserCode());
 
         // 唯一
         List<TUser> users = userMapper.selectByExample(example);
@@ -46,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public void registerUser(TUser user) throws BizException {
         TUserExample example = new TUserExample();
         TUserExample.Criteria criteria = example.createCriteria();
-        criteria.andUserNameEqualTo(user.getUserName());
+        criteria.andUserCodeEqualTo(user.getUserCode());
 
         List<TUser> users = userMapper.selectByExample(example);
         if (!users.isEmpty()) {
@@ -57,4 +56,34 @@ public class UserServiceImpl implements UserService {
 
         // TODO 捕捉数据库错误（重复索引）
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void updateUser(TUser user) {
+        userMapper.updateByPrimaryKey(user);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void updateProfile(TUser currentUser, TUser newUser) {
+        if (!"".equals(newUser.getUserName()) && newUser.getUserName() != null) {
+            currentUser.setUserName(newUser.getUserName());
+        }
+        if (!"".equals(newUser.getMobileCode()) && newUser.getMobileCode() != null) {
+            currentUser.setMobileCode(newUser.getMobileCode());
+        }
+        if (!"".equals(newUser.getEmail()) && newUser.getEmail() != null) {
+            currentUser.setEmail(newUser.getEmail());
+        }
+        if (!"".equals(newUser.getAddress()) && newUser.getAddress() != null) {
+            currentUser.setAddress(newUser.getAddress());
+        }
+        if (newUser.getCardType() != 0 && !"".equals(newUser.getCardCode()) && newUser.getCardCode() != null) {
+            currentUser.setCardType(newUser.getCardType());
+            currentUser.setCardCode(newUser.getCardCode());
+        }
+        if (!"".equals(newUser.getUserPwd()) && newUser.getUserPwd() != null) {
+            currentUser.setUserPwd(newUser.getUserPwd());
+        }
+        userMapper.updateByPrimaryKey(currentUser);
+    }
+
 }

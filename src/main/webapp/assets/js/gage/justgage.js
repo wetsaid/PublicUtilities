@@ -109,7 +109,8 @@
   }
 
   var uel = document.getElementById(config.id);
-  var dataset = uel.dataset ? uel.dataset : {};
+  var dataset = {};
+  // var dataset = uel.dataset ? uel.dataset : {};
 
   // Helps in case developer wants to debug it. unobtrusive
   if (!uel) {
