@@ -48,7 +48,7 @@
                             <input id="input-code" type="text" name="userCode" class="form-control">
                         </div>
                         <div class="form-group">
-                            <a href="#" class="pull-right label-forgot">Forgot password?</a>
+                            <%--<a href="#" class="pull-right label-forgot">Forgot password?</a>--%>
                             <label for="input-pwd">密码</label>
                             <input id="input-pwd" type="password" name="userPwd" class="form-control">
                         </div>

@@ -129,6 +129,8 @@
             success: function (data) {
                 if (data.success) {
                     alert('上传成功');
+                    $('#input-file').val('');
+                    $('#input-filename').val('请选择数据文件');
                 } else {
                     alert('失败' + data.reason);
                 }

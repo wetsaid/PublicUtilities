@@ -1,9 +1,14 @@
 package cn.edu.zucc.shijf.controller;
 
+import cn.edu.zucc.shijf.constant.WeatherIcon;
 import cn.edu.zucc.shijf.exception.BizException;
 import cn.edu.zucc.shijf.model.NewsItem;
+import cn.edu.zucc.shijf.model.TPublicNews;
 import cn.edu.zucc.shijf.model.TUser;
 import cn.edu.zucc.shijf.service.PublicNewsService;
+import cn.edu.zucc.shijf.util.HttpRequest;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +18,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 用于GET方法的Controller
@@ -29,9 +36,69 @@ public class GetController {
     @Resource
     private PublicNewsService publicNewsService;
 
+    /**
+     * 生成测试数据
+     */
+    @RequestMapping("/data")
+    public String genData() {
+        Random random = new Random();
+        Calendar cal = Calendar.getInstance();
+
+        TPublicNews news = new TPublicNews();
+        news.setUserId(919);
+        news.setNewsStatus(1);
+
+        for (int i = 0; i < 1; i++) {
+            news.setNewsType(random.nextInt(6) + 1);
+            news.setReportTime(System.currentTimeMillis());
+            publicNewsService.generateNews(news);
+        }
+
+        // 上个月
+        cal.add(Calendar.MONTH, -1);
+        for (int i = 0; i < 1; i++) {
+            news.setNewsType(random.nextInt(6) + 1);
+            news.setReportTime(cal.getTime().getTime());
+            publicNewsService.generateNews(news);
+        }
+
+        // 上两个月
+        cal.add(Calendar.MONTH, -1);
+        for (int i = 0; i < 1; i++) {
+            news.setNewsType(random.nextInt(6) + 1);
+            news.setReportTime(cal.getTime().getTime());
+            publicNewsService.generateNews(news);
+        }
+
+        return "500";
+    }
+
     @RequestMapping("/index")
-    public String index() {
-        return "index";
+    public String index(HttpSession session) {
+
+        String weatherData = HttpRequest.getWeather("hangzhou");
+        JSONObject jsonObject = JSON.parseObject(weatherData);
+        JSONObject weather = jsonObject.getJSONArray("results").getJSONObject(0);
+
+        JSONObject now = weather.getJSONObject("now");
+        String temperature = now.getString("temperature");
+        session.setAttribute("temperature", temperature);
+
+        int code = now.getIntValue("code");
+        String icon = WeatherIcon.getIcon(code);
+        session.setAttribute("weatherIcon", icon);
+
+        // 判断用户权限
+        TUser currentUser = (TUser) session.getAttribute("currentUser");
+        if (currentUser.getUserType() == 1) {
+            return "index";
+        } else if (currentUser.getUserType() == 2) {
+            return "index-user";
+        } else {
+            session.invalidate();
+            return "404";
+        }
+
     }
 
     /**

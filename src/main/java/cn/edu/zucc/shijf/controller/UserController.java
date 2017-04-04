@@ -1,5 +1,6 @@
 package cn.edu.zucc.shijf.controller;
 
+import cn.edu.zucc.shijf.constant.UserType;
 import cn.edu.zucc.shijf.exception.BizException;
 import cn.edu.zucc.shijf.model.TUser;
 import cn.edu.zucc.shijf.service.UserService;
@@ -74,6 +75,7 @@ public class UserController {
         user.setUserCode(userCode);
         user.setUserName("用户" + userCode);
         user.setUserPwd(userPwd);
+        user.setUserType(UserType.USER.getValue());
         user.setLoginDate(System.currentTimeMillis());
         user.setCreateDate(System.currentTimeMillis());
         try {

@@ -180,6 +180,11 @@ public class PublicNewsController {
         return data;
     }
 
+    /**
+     * 统计近三个月内的事件发生数据
+     *
+     * @return
+     */
     @RequestMapping(value = "/statistics", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> threeMonthData() {

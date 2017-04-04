@@ -27,7 +27,6 @@
     <!-- TOP NAVBAR -->
     <nav role="navigation" class="navbar navbar-static-top">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" class="navbar-toggle"
                         type="button">
@@ -39,7 +38,6 @@
                 </div>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
 
                 <div id="nt-title-container" class="navbar-left running-text visible-lg">
@@ -71,6 +69,8 @@
                 <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                     <li>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <%--<img alt="" class="admin-pic img-circle"--%>
+                            <%--src="http://api.randomuser.me/portraits/thumb/men/10.jpg">--%>
                             你好，${currentUser.userName}
                             <b class="caret"></b>
                         </a>
@@ -140,24 +140,24 @@
             <div id="tree-wrap">
                 <div class="side-bar">
                     <ul class="topnav menu-left-nest">
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="#" title="便民服务站点录入">
-                                <i class="entypo-upload-cloud"></i>
-                                <span>便民服务站点录入</span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="createPoint.jsp" target="CONTENT"
-                                       title="单条录入">
-                                        <i class="icon-location"></i><span>单条录入</span></a>
-                                </li>
-                                <li>
-                                    <a class="tooltip-tip2 ajax-load" href="multiple-upload.jsp" target="CONTENT"
-                                       title="批量录入">
-                                        <i class="icon-map"></i><span>批量录入</span></a>
-                                </li>
-                            </ul>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a class="tooltip-tip ajax-load" href="#" title="便民服务站点录入">--%>
+                                <%--<i class="entypo-upload-cloud"></i>--%>
+                                <%--<span>便民服务站点录入</span>--%>
+                            <%--</a>--%>
+                            <%--<ul>--%>
+                                <%--<li>--%>
+                                    <%--<a class="tooltip-tip2 ajax-load" href="createPoint.jsp" target="CONTENT"--%>
+                                       <%--title="单条录入">--%>
+                                        <%--<i class="icon-location"></i><span>单条录入</span></a>--%>
+                                <%--</li>--%>
+                                <%--<li>--%>
+                                    <%--<a class="tooltip-tip2 ajax-load" href="multiple-upload.jsp" target="CONTENT"--%>
+                                       <%--title="批量录入">--%>
+                                        <%--<i class="icon-map"></i><span>批量录入</span></a>--%>
+                                <%--</li>--%>
+                            <%--</ul>--%>
+                        <%--</li>--%>
                         <li>
                             <a class="tooltip-tip ajax-load" href="service-site.jsp" target="CONTENT" title="便民服务站点查询">
                                 <i class="icon-search"></i>
@@ -166,19 +166,28 @@
                         </li>
                     </ul>
 
+                    <%--<ul class="topnav menu-left-nest">--%>
+                        <%--<li>--%>
+                            <%--<a class="tooltip-tip ajax-load" href="pending-list.jsp" target="CONTENT" title="审核爆料">--%>
+                                <%--<i class="icon-document-edit"></i>--%>
+                                <%--<span>审核爆料</span>--%>
+
+                                <%--<div class="noft-blue" style="display: inline-block; float: none;"></div>--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
+                    <%--</ul>--%>
+
                     <ul class="topnav menu-left-nest">
                         <li>
-                            <a class="tooltip-tip ajax-load" href="pending-list.jsp" target="CONTENT" title="审核爆料">
-                                <i class="icon-document-edit"></i>
-                                <span>审核爆料</span>
-
-                                <div class="noft-blue" style="display: inline-block; float: none;"></div>
+                            <a class="tooltip-tip ajax-load" href="break-the-news.jsp" target="CONTENT" title="我要爆料">
+                                <i class="icon-camera"></i>
+                                <span>我要爆料</span>
                             </a>
                         </li>
                         <li>
-                            <a class="tooltip-tip ajax-load" href="chart.jsp" target="CONTENT" title="统计分析">
-                                <i class="icon-graph-bar"></i>
-                                <span>统计分析</span>
+                            <a class="tooltip-tip ajax-load" href="/myNews" target="CONTENT" title="我的爆料">
+                                <i class="icon-view-list-large"></i>
+                                <span>我的爆料</span>
                             </a>
                         </li>
                     </ul>
@@ -193,18 +202,12 @@
                     </ul>
 
                     <%--<ul class="topnav menu-left-nest">--%>
-                    <%--<li>--%>
-                    <%--<a class="tooltip-tip ajax-load" href="break-the-news.jsp" target="CONTENT" title="我要爆料">--%>
-                    <%--<i class="icon-camera"></i>--%>
-                    <%--<span>我要爆料</span>--%>
-                    <%--</a>--%>
-                    <%--</li>--%>
-                    <%--<li>--%>
-                    <%--<a class="tooltip-tip ajax-load" href="/myNews" target="CONTENT" title="我的爆料">--%>
-                    <%--<i class="icon-view-list-large"></i>--%>
-                    <%--<span>我的爆料</span>--%>
-                    <%--</a>--%>
-                    <%--</li>--%>
+                        <%--<li>--%>
+                            <%--<a class="tooltip-tip ajax-load" href="chart.jsp" target="CONTENT" title="统计分析">--%>
+                                <%--<i class="icon-graph-bar"></i>--%>
+                                <%--<span>统计分析</span>--%>
+                            <%--</a>--%>
+                        <%--</li>--%>
                     <%--</ul>--%>
 
                 </div>
@@ -259,7 +262,7 @@
             <!-- END OF BREADCRUMB -->
 
             <iframe name="CONTENT" src="welcome/index1.jsp" scrolling="auto" frameborder="0" width="100%"
-                    height="71%"></iframe>
+            height="71%"></iframe>
 
         </div>
         <!--  END OF PAPER WRAP -->
@@ -271,6 +274,8 @@
 <script type="text/javascript" src="assets/js/app.js"></script>
 <script type="text/javascript" src="assets/js/load.js"></script>
 <script type="text/javascript" src="assets/js/main.js"></script>
+
+<script type="text/javascript" src="assets/js/weather/hmac-sha1.js"></script>
 
 <script>
 
@@ -329,10 +334,10 @@
                 }
             },
             error: function () {
-                alert('网络连接错误')
+                alert('网络连接错误');
             }
         });
-    })
+    });
 </script>
 
 </body>

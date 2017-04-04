@@ -66,14 +66,12 @@
 
         var sunType = [0, 0, 0, 0, 0, 0];
         var sumMonth = [0, 0, 0];
-//        var sum1 = 0, sum2 = 0, sum3 = 0, sum4 = 0, sum5 = 0, sum6 = 0;
         $.each(data.types, function (i, type) {
             $.each(type, function (j, n) {
                 sunType[i] += n;
                 sumMonth[j] += n;
             })
         });
-
 
         chart = new Highcharts.Chart({
             chart: {
@@ -98,7 +96,8 @@
                     if (this.point.name) { // 饼状图
                         s = '<b>' + this.point.name + '</b>: <br>' + this.y + '笔(' + twoDecimal(this.percentage) + '%)';
                     } else {
-                        s = '' + this.x + ': ' + this.y + '笔';
+                        s = this.y + '笔';
+//                        s = '' + this.x + ': ' + this.y + '笔';
                     }
                     return s;
                 }
@@ -153,7 +152,7 @@
                 {
                     type: 'spline',
                     name: '平均',
-                    data: [sumMonth[0]/6, sumMonth[1]/6, sumMonth[2]/6]
+                    data: [sumMonth[0] / 6, sumMonth[1] / 6, sumMonth[2] / 6]
                 },
                 {
                     type: 'pie', //饼状图
@@ -176,18 +175,18 @@
                         },
                         {
                             name: '街面秩序',
-                            y: sunType[3]
-//                            color: ''
+                            y: sunType[3],
+                            color: '#80699B'
                         },
                         {
                             name: '紧急突发事件',
-                            y: sunType[4]/*,
-                            color: '#89A54E'*/
+                            y: sunType[4],
+                            color: '#3D96AE'
                         },
                         {
                             name: '其他类型',
-                            y: sunType[5]/*,
-                            color: '#89A54E'*/
+                            y: sunType[5],
+                            color: '#DB843D'
                         }
                     ],
                     center: [100, 60],  //饼状图坐标

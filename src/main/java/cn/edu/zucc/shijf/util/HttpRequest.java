@@ -1,12 +1,13 @@
 package cn.edu.zucc.shijf.util;
 
 import cn.edu.zucc.shijf.model.Point;
-import okhttp3.*;
 import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by steven on 2017/3/20.
@@ -48,60 +49,24 @@ public class HttpRequest {
             conn.setDoInput(true);
             conn.setUseCaches(false);
             conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("Charsert", "UTF-8");
+            conn.setRequestProperty("Charset", "UTF-8");
             conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
 
             OutputStream out = new DataOutputStream(conn.getOutputStream());
 
             StringBuilder sb = new StringBuilder();
 
-            // ak
             setNormalParam(sb, "ak", "lSgygOFifAH9G7fXOYB7Uap9lqnjcXe5");
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"ak\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append("lSgygOFifAH9G7fXOYB7Uap9lqnjcXe5")
-//                    .append(NEW_LINE);
 
-            // geotable_id
             setNormalParam(sb, "geotable_id", 164910);
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"geotable_id\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append(164910)
-//                    .append(NEW_LINE);
 
             setNormalParam(sb, "title", point.getTitle());
 
             setNormalParam(sb, "address", point.getAddress());
 
             setNormalParam(sb, "longitude", point.getLongitude());
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"longitude\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append(point.getLongitude())
-//                    .append(NEW_LINE);
 
             setNormalParam(sb, "latitude", point.getLatitude());
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"latitude\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append(30.33)
-//                    .append(NEW_LINE);
-//
-//            setNormalParam(sb, "coord_type", point.getCoordType());
 
             // 结尾标识
             sb.append(NEW_LINE)
@@ -149,7 +114,7 @@ public class HttpRequest {
             conn.setUseCaches(false);
             // 设置请求头参数
             conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("Charsert", "UTF-8");
+            conn.setRequestProperty("Charset", "UTF-8");
             conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
 
             OutputStream out = new DataOutputStream(conn.getOutputStream());
@@ -161,25 +126,9 @@ public class HttpRequest {
 
             // ak
             setNormalParam(sb, "ak", "lSgygOFifAH9G7fXOYB7Uap9lqnjcXe5");
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"ak\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append("lSgygOFifAH9G7fXOYB7Uap9lqnjcXe5")
-//                    .append(NEW_LINE);
 
             // geotable_id
             setNormalParam(sb, "geotable_id", 164910);
-//            sb.append(BOUNDARY_PREFIX)
-//                    .append(BOUNDARY)
-//                    .append(NEW_LINE)
-//                    .append("Content-Disposition: form-data; name=\"geotable_id\"")
-//                    .append(NEW_LINE)
-//                    .append(NEW_LINE)
-//                    .append(164910)
-//                    .append(NEW_LINE);
 
             // poi_list （csv文件）
             sb.append(BOUNDARY_PREFIX)
@@ -232,48 +181,49 @@ public class HttpRequest {
         return response;
     }
 
+    public static String getWeather(String city) {
+        String url = "http://api.thinkpage.cn/v3/weather/now.json?key=ewouglcib2zqjbpm&location=" + city;
 
-    // not OK
-    public static String testOK() {
-
-        String res = null;
-
+        String result = "";
+        BufferedReader in = null;
         try {
-
-            MediaType JSON
-                    = MediaType.parse("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-
-            OkHttpClient client = new OkHttpClient();
-
-            RequestBody body = RequestBody.create(JSON, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"ak\"\r\n\r\nlSgygOFifAH9G7fXOYB7Uap9lqnjcXe5\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"geotable_id\"\r\n\r\n164910\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"title\"\r\n\r\ntttttt\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\ntesttest\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"longitude\"\r\n\r\n120\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"latitude\"\r\n\r\n\"30\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"coord_type\"\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
-            Request request = new Request.Builder()
-                    .url("http://api.map.baidu.com/geodata/v3/poi/create")
-                    .post(body)
-                    .build();
-            Response response = client.newCall(request).execute();
-
-
-//            OkHttpClient client = new OkHttpClient();
-//
-//            MediaType mediaType = MediaType.parse("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-//            RequestBody body = RequestBody.create(mediaType, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"ak\"\r\n\r\nlSgygOFifAH9G7fXOYB7Uap9lqnjcXe5\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"geotable_id\"\r\n\r\n164910\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"title\"\r\n\r\ntttttt\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"address\"\r\n\r\ntesttest\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"longitude\"\r\n\r\n120\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"latitude\"\r\n\r\n\"30\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"coord_type\"\r\n\r\n1\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
-//            Request request = new Request.Builder()
-//                    .url("http://api.map.baidu.com/geodata/v3/poi/create")
-//                    .post(body)
-//                    .addHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW")
-//                    .addHeader("cache-control", "no-cache")
-//                    .build();
-//
-//            Response response = client.newCall(request).execute();
-
-            res = response.body().string();
-
-        } catch (IOException e) {
+            URL realUrl = new URL(url);
+            //打开和URL之间的连接
+            HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
+            //设置通用的请求属性
+            conn.setRequestProperty("Charset", "UTF-8");
+            conn.setRequestProperty("accept", "*/*");
+            conn.setRequestProperty("connection", "Keep-Alive");
+            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)");
+            //建立实际的连接
+            conn.connect();
+            //获取所有响应头字段
+            Map<String, List<String>> map = conn.getHeaderFields();
+            //遍历所有的响应头字段
+            for (String key : map.keySet()) {
+                System.out.println(key + "--->" + map.get(key));
+            }
+            //定义BufferedReader输入流来读取URL的响应
+            in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+        } catch (Exception e) {
+            System.out.println("发送GET请求出现异常！" + e);
             e.printStackTrace();
-            log.error(e.getMessage());
         }
-
-
-        return res;
+        //使用finally块来关闭输入流
+        finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
     }
+
 }

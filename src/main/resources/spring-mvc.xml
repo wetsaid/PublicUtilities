@@ -50,7 +50,7 @@
         <!-- 多个拦截器，顺序执行 -->
         <mvc:interceptor>
             <mvc:mapping path="/index"/>
-            <bean class="cn.edu.zucc.shijf.interceptor.SignInInterceptor"></bean>
+            <bean class="cn.edu.zucc.shijf.interceptor.SignInInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
