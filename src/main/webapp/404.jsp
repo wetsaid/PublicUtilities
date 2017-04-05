@@ -1,16 +1,19 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Apricot v1.2</title>
+    <title>公用事业管理系统 1.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
     <style type="text/css">
-    body {
-        overflow:hidden!important;
-        padding-top: 120px;
-    }
+        body {
+            overflow: hidden !important;
+            padding-top: 120px;
+        }
     </style>
     <!-- Le styles -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
@@ -21,71 +24,41 @@
     <link rel="stylesheet" href="assets/css/signin.css">
     <link rel="stylesheet" href="assets/css/extra-pages.css">
 
-
-
-
-
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="assets/ico/minus.png">
 </head>
 
-<body><div id="awwwards" class="right black"><a href="http://www.awwwards.com/best-websites/apricot-navigation-admin-dashboard-template" target="_blank">best websites of the world</a></div>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
+<body>
 
+<div class="logo-error">
+    <h1>公用事业管理系统
+        <span>v1.0</span>
+    </h1>
+</div>
 
-    <div class="logo-error">
-        <h1>Apricot
-            <span>v1.0</span>
-        </h1>
-    </div>
+<!-- Main content -->
+<section class="page-error">
 
-    <!-- Main content -->
-    <section class="page-error">
-
-        <div class="error-page">
-            <h2 class="headline text-info">404</h2>
-            <div class="error-content">
-                <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
-                <p>
-                    We could not find the page you were looking for. Meanwhile, you may <a class="error-link" href='index.jsp'>return to dashboard</a> or try using the search form.
-                </p>
-                <form class='search-form'>
-                    <input type="text" name="search" class='form-control' placeholder="Search">
-                </form>
-            </div>
-            <!-- /.error-content -->
+    <div class="error-page">
+        <h2 class="headline text-info">404</h2>
+        <div class="error-content">
+            <h3><i class="fa fa-warning text-yellow"></i> 糟糕！ 找不到网页。</h3>
+            <p>
+                我们找不到您要寻找的页面，<a class="error-link" href='/index'>返回首页</a>。
+            </p>
         </div>
-        <!-- /.error-page -->
+        <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+</section>
+<!--  END OF PAPER WRAP -->
 
-    </section>
-
-
-
-
-
-
-
-
-    <!--  END OF PAPER WRAP -->
-
-
-
-
-    <!-- MAIN EFFECT -->
-    <script type="text/javascript" src="assets/js/preloader.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
-    <script type="text/javascript" src="assets/js/load.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-
+<!-- MAIN EFFECT -->
+<script type="text/javascript" src="assets/js/preloader.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript" src="assets/js/load.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
 
 </body>
 

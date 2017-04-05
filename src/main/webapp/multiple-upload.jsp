@@ -33,17 +33,17 @@
             <div class="nest" id="basicClose">
                 <br/><br/><br/>
                 <%--<div class="title-alt">--%>
-                    <%--<h6>批量上传数据</h6>--%>
-                    <%--<div class="titleClose">--%>
-                        <%--<a class="gone" href="#basicClose">--%>
-                            <%--<span class="entypo-cancel"></span>--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                    <%--<div class="titleToggle">--%>
-                        <%--<a class="nav-toggle-alt" href="#basic">--%>
-                            <%--<span class="entypo-up-open"></span>--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
+                <%--<h6>批量上传数据</h6>--%>
+                <%--<div class="titleClose">--%>
+                <%--<a class="gone" href="#basicClose">--%>
+                <%--<span class="entypo-cancel"></span>--%>
+                <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="titleToggle">--%>
+                <%--<a class="nav-toggle-alt" href="#basic">--%>
+                <%--<span class="entypo-up-open"></span>--%>
+                <%--</a>--%>
+                <%--</div>--%>
                 <%--</div>--%>
 
                 <div class="body-nest" id="basic">

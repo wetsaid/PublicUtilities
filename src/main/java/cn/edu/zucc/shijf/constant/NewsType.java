@@ -15,10 +15,6 @@ public enum NewsType {
     private int value;
     private String name;
 
-    NewsType(int value) {
-        this.value = value;
-    }
-
     NewsType(int value, String name) {
         this.value = value;
         this.name = name;

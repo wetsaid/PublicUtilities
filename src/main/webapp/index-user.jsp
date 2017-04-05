@@ -141,22 +141,22 @@
                 <div class="side-bar">
                     <ul class="topnav menu-left-nest">
                         <%--<li>--%>
-                            <%--<a class="tooltip-tip ajax-load" href="#" title="便民服务站点录入">--%>
-                                <%--<i class="entypo-upload-cloud"></i>--%>
-                                <%--<span>便民服务站点录入</span>--%>
-                            <%--</a>--%>
-                            <%--<ul>--%>
-                                <%--<li>--%>
-                                    <%--<a class="tooltip-tip2 ajax-load" href="createPoint.jsp" target="CONTENT"--%>
-                                       <%--title="单条录入">--%>
-                                        <%--<i class="icon-location"></i><span>单条录入</span></a>--%>
-                                <%--</li>--%>
-                                <%--<li>--%>
-                                    <%--<a class="tooltip-tip2 ajax-load" href="multiple-upload.jsp" target="CONTENT"--%>
-                                       <%--title="批量录入">--%>
-                                        <%--<i class="icon-map"></i><span>批量录入</span></a>--%>
-                                <%--</li>--%>
-                            <%--</ul>--%>
+                        <%--<a class="tooltip-tip ajax-load" href="#" title="便民服务站点录入">--%>
+                        <%--<i class="entypo-upload-cloud"></i>--%>
+                        <%--<span>便民服务站点录入</span>--%>
+                        <%--</a>--%>
+                        <%--<ul>--%>
+                        <%--<li>--%>
+                        <%--<a class="tooltip-tip2 ajax-load" href="createPoint.jsp" target="CONTENT"--%>
+                        <%--title="单条录入">--%>
+                        <%--<i class="icon-location"></i><span>单条录入</span></a>--%>
+                        <%--</li>--%>
+                        <%--<li>--%>
+                        <%--<a class="tooltip-tip2 ajax-load" href="multiple-upload.jsp" target="CONTENT"--%>
+                        <%--title="批量录入">--%>
+                        <%--<i class="icon-map"></i><span>批量录入</span></a>--%>
+                        <%--</li>--%>
+                        <%--</ul>--%>
                         <%--</li>--%>
                         <li>
                             <a class="tooltip-tip ajax-load" href="service-site.jsp" target="CONTENT" title="便民服务站点查询">
@@ -167,14 +167,14 @@
                     </ul>
 
                     <%--<ul class="topnav menu-left-nest">--%>
-                        <%--<li>--%>
-                            <%--<a class="tooltip-tip ajax-load" href="pending-list.jsp" target="CONTENT" title="审核爆料">--%>
-                                <%--<i class="icon-document-edit"></i>--%>
-                                <%--<span>审核爆料</span>--%>
+                    <%--<li>--%>
+                    <%--<a class="tooltip-tip ajax-load" href="pending-list.jsp" target="CONTENT" title="审核爆料">--%>
+                    <%--<i class="icon-document-edit"></i>--%>
+                    <%--<span>审核爆料</span>--%>
 
-                                <%--<div class="noft-blue" style="display: inline-block; float: none;"></div>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                    <%--<div class="noft-blue" style="display: inline-block; float: none;"></div>--%>
+                    <%--</a>--%>
+                    <%--</li>--%>
                     <%--</ul>--%>
 
                     <ul class="topnav menu-left-nest">
@@ -202,12 +202,12 @@
                     </ul>
 
                     <%--<ul class="topnav menu-left-nest">--%>
-                        <%--<li>--%>
-                            <%--<a class="tooltip-tip ajax-load" href="chart.jsp" target="CONTENT" title="统计分析">--%>
-                                <%--<i class="icon-graph-bar"></i>--%>
-                                <%--<span>统计分析</span>--%>
-                            <%--</a>--%>
-                        <%--</li>--%>
+                    <%--<li>--%>
+                    <%--<a class="tooltip-tip ajax-load" href="chart.jsp" target="CONTENT" title="统计分析">--%>
+                    <%--<i class="icon-graph-bar"></i>--%>
+                    <%--<span>统计分析</span>--%>
+                    <%--</a>--%>
+                    <%--</li>--%>
                     <%--</ul>--%>
 
                 </div>
@@ -261,8 +261,8 @@
             </ul>
             <!-- END OF BREADCRUMB -->
 
-            <iframe name="CONTENT" src="welcome/index1.jsp" scrolling="auto" frameborder="0" width="100%"
-            height="71%"></iframe>
+            <iframe name="CONTENT" src="welcome/welcome.jsp" scrolling="auto" frameborder="0" width="100%"
+                    height="71%"></iframe>
 
         </div>
         <!--  END OF PAPER WRAP -->

@@ -24,7 +24,7 @@ import java.util.Random;
 
 /**
  * 用于GET方法的Controller
- *
+ * <p>
  * Created by steven on 2017/3/28.
  */
 
@@ -73,6 +73,12 @@ public class GetController {
         return "500";
     }
 
+    /**
+     * 首页
+     *
+     * @param session
+     * @return
+     */
     @RequestMapping("/index")
     public String index(HttpSession session) {
 
@@ -126,7 +132,13 @@ public class GetController {
         return modelAndView;
     }
 
-
+    /**
+     * 下载服务站点数据模板
+     *
+     * @param fileName
+     * @param response
+     * @return
+     */
     @RequestMapping("/downloadTemplate")
     public String download(String fileName, HttpServletResponse response) {
         response.setCharacterEncoding("utf-8");
@@ -136,7 +148,7 @@ public class GetController {
             String path = Thread.currentThread().getContextClassLoader()
                     .getResource("").getPath();//这个download目录为啥建立在classes下的
             InputStream inputStream = new FileInputStream(new File(path
-                     + fileName));
+                    + fileName));
 
             OutputStream os = response.getOutputStream();
             byte[] b = new byte[2048];
@@ -154,11 +166,15 @@ public class GetController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //  返回值要注意，要不然就出现下面这句错误！
-        //java+getOutputStream() has already been called for this response
         return null;
     }
 
+    /**
+     * 登出
+     *
+     * @param session
+     * @return
+     */
     @RequestMapping("/signOut")
     public String signOut(HttpSession session) {
         session.invalidate();

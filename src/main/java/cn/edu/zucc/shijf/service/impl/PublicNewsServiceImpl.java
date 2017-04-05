@@ -62,11 +62,7 @@ public class PublicNewsServiceImpl implements PublicNewsService {
         criteria.andNewsStatusEqualTo(NewsStatus.PENDING.getValue());
 
         List<TPublicNews> pendingNews = publicNewsMapper.selectByExample(example);
-//        if (pendingNews.isEmpty()) {
-//            return 0;
-//        } else {
         return pendingNews.size();
-//        }
     }
 
     public TPublicNews getNewsByNumber(int number) throws BizException {

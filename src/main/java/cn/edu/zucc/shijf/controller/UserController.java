@@ -30,6 +30,13 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    /**
+     * 登录
+     *
+     * @param session
+     * @param reqUser 请求用户
+     * @return
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> login(HttpSession session, TUser reqUser) {
@@ -60,6 +67,15 @@ public class UserController {
         return data;
     }
 
+    /**
+     * 注册普通用户
+     *
+     * @param session
+     * @param userCode 用户名
+     * @param userPwd  密码
+     * @param cfmPwd   确认密码
+     * @return
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> register(HttpSession session, String userCode, String userPwd, String cfmPwd) {
@@ -96,18 +112,22 @@ public class UserController {
         return data;
     }
 
+    /**
+     * 修改个人信息
+     *
+     * @param session
+     * @param newUser
+     * @return
+     */
     @RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> updateProfile(HttpSession session, TUser newUser) {
         Map<String, Object> data = new HashMap<String, Object>();
 
         TUser currentUser = (TUser) session.getAttribute("currentUser");
-
-
         userService.updateProfile(currentUser, newUser);
+        session.setAttribute("currentUser", currentUser);
 
-
-        // 查看 currentUser
         return data;
     }
 

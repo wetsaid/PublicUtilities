@@ -43,7 +43,6 @@
                 <div class="account-box">
                     <form id="form-login" role="form">
                         <div class="form-group">
-                            <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
                             <label for="input-code">用户名</label>
                             <input id="input-code" type="text" name="userCode" class="form-control">
                         </div>
@@ -55,9 +54,6 @@
                         <div class="pull-left">
                             <p id="p-reason" style="color: #ff3111"></p>
                         </div>
-                        <%--<div class="checkbox pull-left">--%>
-                        <%--<label><input type="checkbox">记住用户名</label>--%>
-                        <%--</div>--%>
                     </form>
                     <button onclick="login()" class="btn btn btn-primary pull-right">
                         登 录

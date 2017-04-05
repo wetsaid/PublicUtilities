@@ -132,7 +132,8 @@
 //                            cardType = CardType.getName(0);
                         %>
                         <dt>证件类型</dt>
-                        <dd><%=cardType%></dd>
+                        <dd><%=cardType%>
+                        </dd>
 
                         <dt>证件号码</dt>
                         <dd>${currentUser.cardCode}</dd>
@@ -270,8 +271,9 @@
                                     <label class="col-lg-3 control-label">手机:</label>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <input class="form-control" name="mobileCode" value="${currentUser.mobileCode}"
-                                               type="text" id="input-mobile">
+                                            <input class="form-control" name="mobileCode"
+                                                   value="${currentUser.mobileCode}"
+                                                   type="text" id="input-mobile">
                                             <span class="input-group-addon ">eg.123-4567-8901</span>
                                         </div>
                                     </div>
@@ -281,7 +283,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <input class="form-control" name="email" value="${currentUser.email}"
-                                               type="text">
+                                                   type="text">
                                             <span class="input-group-addon ">eg.name@example.com</span>
                                         </div>
                                     </div>
@@ -302,10 +304,14 @@
                                     <div class="col-lg-8">
                                         <div class="ui-select">
                                             <select id="user_time_zone" class="form-control" name="cardType">
-                                                <option value="0" <c:if test="${currentUser.cardType == null}">selected</c:if>>请选择
-                                                <option value="1" <c:if test="${currentUser.cardType == 1}">selected</c:if>>身份证
-                                                <option value="2" <c:if test="${currentUser.cardType == 2}">selected</c:if>>护照
-                                                <option value="3" <c:if test="${currentUser.cardType == 3}">selected</c:if>>军人证
+                                                <option value="0"
+                                                        <c:if test="${currentUser.cardType == null}">selected</c:if>>请选择
+                                                <option value="1"
+                                                        <c:if test="${currentUser.cardType == 1}">selected</c:if>>身份证
+                                                <option value="2"
+                                                        <c:if test="${currentUser.cardType == 2}">selected</c:if>>护照
+                                                <option value="3"
+                                                        <c:if test="${currentUser.cardType == 3}">selected</c:if>>军人证
                                             </select>
                                         </div>
                                     </div>

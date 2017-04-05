@@ -28,6 +28,13 @@ public class SiteController {
 
     private Logger log = Logger.getLogger(SiteController.class);
 
+    /**
+     * 新建单个服务站点
+     *
+     * @param request
+     * @param point   站点数据
+     * @return
+     */
     @RequestMapping(value = "/createPoint", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> createPoint(HttpServletRequest request, Point point) {
@@ -46,6 +53,13 @@ public class SiteController {
         return data;
     }
 
+    /**
+     * 批量上传服务站点数据
+     *
+     * @param request
+     * @param fileUp  上传的文件
+     * @return
+     */
     @RequestMapping(value = "/csvImport", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> csvImport(HttpServletRequest request,
@@ -83,6 +97,12 @@ public class SiteController {
         return data;
     }
 
+    /**
+     * 解析响应
+     *
+     * @param response
+     * @param data
+     */
     private void parseResponse(String response, Map<String, Object> data) {
 
         if (response == null) {

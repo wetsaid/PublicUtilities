@@ -258,7 +258,7 @@
             </ul>
             <!-- END OF BREADCRUMB -->
 
-            <iframe name="CONTENT" src="welcome/index1.jsp" scrolling="auto" frameborder="0" width="100%"
+            <iframe name="CONTENT" src="welcome/welcome.jsp" scrolling="auto" frameborder="0" width="100%"
                     height="71%"></iframe>
 
         </div>

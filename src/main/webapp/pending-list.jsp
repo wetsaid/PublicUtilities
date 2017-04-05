@@ -24,7 +24,6 @@
 
 <body>
 
-
 <!--CONTENT-->
 <div class="row" style="margin-top:30px;padding:0 15px;">
 
@@ -40,7 +39,6 @@
                 <div style="clear:both;"></div>
             </div>
         </div>
-
 
         <div class="nest">
         </div>
@@ -102,15 +100,14 @@
 
 <script type="text/javascript" src="assets/js/iCheck/jquery.icheck.js"></script>
 
-
-<script>
-    // Basic FitVids Test
-    $(".blog-list-nest").fitVids();
-    // Custom selector and No-Double-Wrapping Prevention Test
-    $(".blog-list-nest").fitVids({
-        customSelector: "iframe[src^='http://socialcam.com']"
-    });
-</script>
+<%--<script>--%>
+    <%--// Basic FitVids Test--%>
+    <%--$(".blog-list-nest").fitVids();--%>
+    <%--// Custom selector and No-Double-Wrapping Prevention Test--%>
+    <%--$(".blog-list-nest").fitVids({--%>
+        <%--customSelector: "iframe[src^='http://socialcam.com']"--%>
+    <%--});--%>
+<%--</script>--%>
 
 <%--单选框--%>
 <script type="text/javascript">
@@ -213,6 +210,34 @@
         });
     }
 
+    function receiveData(data) {
+        if (!data.success) {
+            if (data.size == 0) {
+                alert("没有需要审核的爆料");
+                $('.row').attr('hidden', true);
+            } else {
+                alert(data.reason);
+            }
+            return
+        }
+
+        $('.row').attr('hidden', false);
+
+        if (data.news.imgName == null) {
+            $('#img-name').attr('hidden', true);
+        } else {
+            $('#img-name').attr('src', data.news.imgName);
+            $('#img-name').attr('hidden', false);
+        }
+        $('#news-type').html(data.newsType);
+        $('#news-description').html(data.news.newsDescription);
+        $('#textarea-fail-reason').val('');
+
+        // 回到顶部
+        toTop();
+    }
+
+    // 审核
     function review() {
         $.ajax({
             type: 'POST',

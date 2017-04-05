@@ -21,10 +21,6 @@ public class UserServiceImpl implements UserService {
     @Resource
     private TUserMapper userMapper;
 
-    public List<TUser> getAllUsers() {
-        return userMapper.selectByExample(null);
-    }
-
     public TUser getUser(TUser user) throws BizException {
         TUserExample example = new TUserExample();
         TUserExample.Criteria criteria = example.createCriteria();

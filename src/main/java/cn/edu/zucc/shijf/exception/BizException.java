@@ -5,9 +5,6 @@ package cn.edu.zucc.shijf.exception;
  */
 public class BizException extends Exception {
 
-    public BizException() {
-    }
-
     public BizException(String message) {
         super(message);
     }

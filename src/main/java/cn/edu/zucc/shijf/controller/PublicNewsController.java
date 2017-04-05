@@ -171,6 +171,11 @@ public class PublicNewsController {
         return data;
     }
 
+    /**
+     * 待审核爆料数量，用于首页提示
+     *
+     * @return
+     */
     @RequestMapping(value = "/pendingSize", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getPendingSize() {
@@ -208,17 +213,25 @@ public class PublicNewsController {
         xCategories.add(sdf.format(last) + " 至 " + sdf.format(today));
         data.put("xCategories", xCategories);
 
-        int[] last2Month = publicNewsService.getQtyByType(last3, last2);
-        int[] last1Month = publicNewsService.getQtyByType(last2, last);
+        int[] last3Month = publicNewsService.getQtyByType(last3, last2);
+        int[] last2Month = publicNewsService.getQtyByType(last2, last);
         int[] lastMonth = publicNewsService.getQtyByType(last, today);
 
-        List<List<Integer>> types = setTypes(last2Month, last1Month, lastMonth);
+        List<List<Integer>> types = setTypes(last3Month, last2Month, lastMonth);
         data.put("types", types);
 
         return data;
     }
 
-    private List<List<Integer>> setTypes(int[] last2Month, int[] last1Month, int[] lastMonth) {
+    /**
+     * 包装数据
+     *
+     * @param last3Month
+     * @param last2Month
+     * @param lastMonth
+     * @return
+     */
+    private List<List<Integer>> setTypes(int[] last3Month, int[] last2Month, int[] lastMonth) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
 
         List<Integer> cityEnvironment = new ArrayList<Integer>();
@@ -229,8 +242,8 @@ public class PublicNewsController {
         List<Integer> other = new ArrayList<Integer>();
 
         int[][] table = new int[3][6];
-        System.arraycopy(last2Month, 0, table[0], 0, last2Month.length);
-        System.arraycopy(last1Month, 0, table[1], 0, last1Month.length);
+        System.arraycopy(last3Month, 0, table[0], 0, last3Month.length);
+        System.arraycopy(last2Month, 0, table[1], 0, last2Month.length);
         System.arraycopy(lastMonth, 0, table[2], 0, lastMonth.length);
 
         for (int[] t : table) {

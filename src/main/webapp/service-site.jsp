@@ -44,25 +44,7 @@
 <body>
 
 
-<%--<div class="content-wrap">--%>
-<%--<div class="row">--%>
-
-<%--<div class="col-sm-12">--%>
-<%--<div class="nest">--%>
-
-<%--<div style="padding:0;" class="body-nest">--%>
-
-
 <div id="allmap" style="width: 100%; height: 100%"></div>
-
-
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-
-
-<%--</div>--%>
-<%--</div>--%>
 
 
 <!-- MAIN EFFECT -->
@@ -84,7 +66,7 @@
         },
         onSearchComplete: function (results) {
 //            alert(results.getPoi(0).point);
-            //可添加自定义回调函数
+            //自定义回调函数
         }
     };
     var localSearch = new BMap.LocalSearch(map, options);
@@ -135,59 +117,6 @@
         });
     });
 
-
-    // 步行规划
-    //    var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
-    //    walking.search("浙江大学城市学院南校区", "浙江大学城市学院北校区");
 </script>
 
 </html>
-
-<%--<script type="text/javascript">--%>
-<%--// 百度地图API功能--%>
-<%--var map = new BMap.Map("allmap");          // 创建地图实例--%>
-<%--var point = new BMap.Point(120.160334, 30.327205);  // 创建点坐标--%>
-<%--map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别--%>
-<%--map.enableScrollWheelZoom();--%>
-<%--map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件--%>
-<%--var customLayer;--%>
-<%--function addCustomLayer(keyword) {--%>
-<%--if (customLayer) {--%>
-<%--map.removeTileLayer(customLayer);--%>
-<%--}--%>
-<%--customLayer = new BMap.CustomLayer({--%>
-<%--geotableId: 164910,--%>
-<%--q: '', //检索关键字--%>
-<%--tags: '', //空格分隔的多字符串--%>
-<%--filter: '' //过滤条件,参考http://developer.baidu.com/map/lbs-geosearch.htm#.search.nearby--%>
-<%--});--%>
-<%--map.addTileLayer(customLayer);--%>
-<%--customLayer.addEventListener('hotspotclick', callback);--%>
-<%--}--%>
-<%--function callback(e)//单击热点图层--%>
-<%--{--%>
-<%--var customPoi = e.customPoi;//poi的默认字段--%>
-<%--//        var contentPoi = e.content;//poi的自定义字段--%>
-<%--//        var content = '<p style="width:280px;margin:0;line-height:20px;">地址：' + customPoi.address + '</p>';--%>
-<%--var content = 'test';--%>
-<%--var searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {--%>
-<%--title: customPoi.title, //标题--%>
-<%--width: 290, //宽度--%>
-<%--height: 40, //高度--%>
-<%--panel: "panel", //检索结果面板--%>
-<%--enableAutoPan: true, //自动平移--%>
-<%--enableSendToPhone: false, //是否显示发送到手机按钮--%>
-<%--searchTypes: [--%>
-<%--BMAPLIB_TAB_SEARCH,   //周边检索--%>
-<%--BMAPLIB_TAB_TO_HERE,  //到这里去--%>
-<%--BMAPLIB_TAB_FROM_HERE //从这里出发--%>
-<%--]--%>
-<%--});--%>
-<%--var point = new BMap.Point(customPoi.point.lng, customPoi.point.lat);--%>
-<%--searchInfoWindow.open(point);--%>
-<%--}--%>
-
-<%--map.addEventListener("load", addCustomLayer());--%>
-<%--</script>--%>
-
-

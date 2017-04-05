@@ -1,6 +1,5 @@
 package cn.edu.zucc.shijf.util;
 
-import cn.edu.zucc.shijf.model.Point;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -36,62 +35,6 @@ public class HttpRequest {
                 .append(NEW_LINE)
                 .append(value)
                 .append(NEW_LINE);
-    }
-
-    public static String createPoint(Point point) {
-        String response = null;
-
-        try {
-            URL url = new URL("http://api.map.baidu.com/geodata/v3/poi/create");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
-            conn.setUseCaches(false);
-            conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("Charset", "UTF-8");
-            conn.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);
-
-            OutputStream out = new DataOutputStream(conn.getOutputStream());
-
-            StringBuilder sb = new StringBuilder();
-
-            setNormalParam(sb, "ak", "lSgygOFifAH9G7fXOYB7Uap9lqnjcXe5");
-
-            setNormalParam(sb, "geotable_id", 164910);
-
-            setNormalParam(sb, "title", point.getTitle());
-
-            setNormalParam(sb, "address", point.getAddress());
-
-            setNormalParam(sb, "longitude", point.getLongitude());
-
-            setNormalParam(sb, "latitude", point.getLatitude());
-
-            // 结尾标识
-            sb.append(NEW_LINE)
-                    .append(BOUNDARY_PREFIX)
-                    .append(BOUNDARY)
-                    .append(BOUNDARY_PREFIX)
-                    .append(NEW_LINE);
-
-            log.info(NEW_LINE + sb.toString());
-
-            out.write(sb.toString().getBytes());
-            out.flush();
-            out.close();
-
-            // 读取URL的响应
-            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            if ((response = reader.readLine()) != null) {
-                log.info(response);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("发送POST请求出现异常！" + e.getMessage());
-        }
-
-        return response;
     }
 
     /**
@@ -181,6 +124,12 @@ public class HttpRequest {
         return response;
     }
 
+    /**
+     * 获取天气信息
+     *
+     * @param city 城市拼音
+     * @return
+     */
     public static String getWeather(String city) {
         String url = "http://api.thinkpage.cn/v3/weather/now.json?key=ewouglcib2zqjbpm&location=" + city;
 
