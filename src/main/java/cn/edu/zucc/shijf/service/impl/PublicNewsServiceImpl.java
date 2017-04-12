@@ -70,6 +70,8 @@ public class PublicNewsServiceImpl implements PublicNewsService {
         TPublicNewsExample.Criteria criteria = example.createCriteria();
         criteria.andNewsStatusEqualTo(NewsStatus.PENDING.getValue());
 
+        example.setOrderByClause("news_id desc");
+
         List<TPublicNews> pendingNews = publicNewsMapper.selectByExample(example);
         if (number > pendingNews.size()) {
             throw new BizException("没有下一条了");
@@ -89,6 +91,7 @@ public class PublicNewsServiceImpl implements PublicNewsService {
         TPublicNewsExample example = new TPublicNewsExample();
         TPublicNewsExample.Criteria criteria = example.createCriteria();
         criteria.andReportTimeBetween(begin.getTime(), end.getTime());
+        criteria.andNewsStatusEqualTo(NewsStatus.PASSED.getValue());
 
         List<TPublicNews> newsList = publicNewsMapper.selectByExample(example);
 

@@ -78,7 +78,7 @@
             strokeOpacity: 0.3
         });
         map.addOverlay(circle);
-        localSearch.searchNearby('捕鼠', point, 5000, {
+        localSearch.searchNearby(' ', point, 5000, {
             customData: {
                 geotableId: 164910
             }
@@ -103,14 +103,13 @@
     });
     var circle = null;
     drawingManager.addEventListener('circlecomplete', function (e, overlay) {
-        //	circlecomplete
         map.clearOverlays();
         circle = e;
         map.addOverlay(overlay);
         var radius = parseInt(e.getRadius());
         var center = e.getCenter();
         drawingManager.close();
-        localSearch.searchNearby('捕鼠', center, radius, {
+        localSearch.searchNearby(' ', center, radius, {
             customData: {
                 geotableId: 164910
             }

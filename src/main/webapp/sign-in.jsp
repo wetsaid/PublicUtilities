@@ -97,11 +97,10 @@
             type: 'POST',
             dataType: 'json',
             url: '/user/login',
-
             data: $('#form-login').serializeArray(),
             success: function (data) {
                 if (data.success) {
-                    window.location.href = 'index';
+                    window.location.href = '/index';
                 }
                 else {
                     if (data.reason == '用户不存在') {

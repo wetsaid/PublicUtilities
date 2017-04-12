@@ -31,9 +31,6 @@
 
 <script type="text/javascript">
     var chart;
-    var categories1, categories2, categories3;
-    //    var categories = ["", "", ""];
-    var categories = [];
 
     $(function () {
 
@@ -44,10 +41,7 @@
             data: {},
             success: function (data) {
 
-//                alert(data.types.length);
-
                 setData(data);
-
 
             },
             error: function () {
@@ -58,11 +52,6 @@
     });
 
     function setData(data) {
-
-//        var categories = [];
-//        $.each(data.xCategories, function (i, n) {
-//            categories.push(n);
-//        });
 
         var sunType = [0, 0, 0, 0, 0, 0];
         var sumMonth = [0, 0, 0];
@@ -190,7 +179,6 @@
                         }
                     ],
                     center: [100, 60],  //饼状图坐标
-//                    center: [100, 80],  //饼状图坐标
                     size: 100,  //饼状图直径大小
                     dataLabels: {
                         enabled: false  //不显示饼状图数据标签

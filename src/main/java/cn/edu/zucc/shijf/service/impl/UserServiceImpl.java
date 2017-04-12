@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
         TUserExample.Criteria criteria = example.createCriteria();
         criteria.andUserCodeEqualTo(user.getUserCode());
 
-        // 唯一
         List<TUser> users = userMapper.selectByExample(example);
         if (users.isEmpty()) {
             throw new BizException("用户不存在");

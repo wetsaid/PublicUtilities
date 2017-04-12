@@ -1,7 +1,7 @@
+<%@ page import="cn.edu.zucc.shijf.constant.CardType" %>
 <%@ page import="cn.edu.zucc.shijf.model.TUser" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="cn.edu.zucc.shijf.constant.CardType" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -386,15 +386,12 @@
         $("#input-mobile").mask("999-9999-9999", {
             placeholder: "*"
         });
-//        $("input[name='mobileCode']").mask("999-9999-9999", {
-//            placeholder: "*"
-//        });
     });
 </script>
 
 <%--表单验证(email)--%>
 <script type="text/javascript">
-
+    // 邮箱校验
     function validate_email(field) {
         with (field) {
             if (value == "") {

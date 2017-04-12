@@ -127,11 +127,11 @@ public class HttpRequest {
     /**
      * 获取天气信息
      *
-     * @param city 城市拼音
+     * @param location "城市拼音" / "ip"
      * @return
      */
-    public static String getWeather(String city) {
-        String url = "http://api.thinkpage.cn/v3/weather/now.json?key=ewouglcib2zqjbpm&location=" + city;
+    public static String getWeather(String location) {
+        String url = "http://api.thinkpage.cn/v3/weather/now.json?key=ewouglcib2zqjbpm&location=" + location;
 
         String result = "";
         BufferedReader in = null;
