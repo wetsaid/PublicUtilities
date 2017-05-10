@@ -21,7 +21,7 @@ public class TPublicNews {
 
     private Integer newsStatus;
 
-    private String newsRemark;
+    private String remark;
 
     public Integer getNewsId() {
         return newsId;
@@ -103,11 +103,11 @@ public class TPublicNews {
         this.newsStatus = newsStatus;
     }
 
-    public String getNewsRemark() {
-        return newsRemark;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setNewsRemark(String newsRemark) {
-        this.newsRemark = newsRemark == null ? null : newsRemark.trim();
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }

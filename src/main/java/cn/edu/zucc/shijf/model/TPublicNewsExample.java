@@ -734,73 +734,73 @@ public class TPublicNewsExample {
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkIsNull() {
-            addCriterion("news_remark is null");
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkIsNotNull() {
-            addCriterion("news_remark is not null");
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkEqualTo(String value) {
-            addCriterion("news_remark =", value, "newsRemark");
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkNotEqualTo(String value) {
-            addCriterion("news_remark <>", value, "newsRemark");
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkGreaterThan(String value) {
-            addCriterion("news_remark >", value, "newsRemark");
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkGreaterThanOrEqualTo(String value) {
-            addCriterion("news_remark >=", value, "newsRemark");
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkLessThan(String value) {
-            addCriterion("news_remark <", value, "newsRemark");
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkLessThanOrEqualTo(String value) {
-            addCriterion("news_remark <=", value, "newsRemark");
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkLike(String value) {
-            addCriterion("news_remark like", value, "newsRemark");
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkNotLike(String value) {
-            addCriterion("news_remark not like", value, "newsRemark");
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkIn(List<String> values) {
-            addCriterion("news_remark in", values, "newsRemark");
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkNotIn(List<String> values) {
-            addCriterion("news_remark not in", values, "newsRemark");
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkBetween(String value1, String value2) {
-            addCriterion("news_remark between", value1, value2, "newsRemark");
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andNewsRemarkNotBetween(String value1, String value2) {
-            addCriterion("news_remark not between", value1, value2, "newsRemark");
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
             return (Criteria) this;
         }
     }
